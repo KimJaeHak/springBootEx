@@ -1,4 +1,4 @@
-package com.in28minutes.learnspringframework;
+package com.in28minutes.learnspringframework.helloworld;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -34,8 +34,8 @@ public class HelloWorldConfiguration {
 		return new Address("dontan2", "gyung2");
 	}
 	
-	@Bean("address3")
-	@Qualifier("AddressQualifier")
+	@Bean("address5")
+	@Qualifier
 	public Address address3() {
 		return new Address("dontan3", "gyung3");
 	}
@@ -61,7 +61,7 @@ public class HelloWorldConfiguration {
 	
 	@Bean
 	
-	public Person person5Qualifier(String name, int age, @Qualifier("AddressQualifier")Address address) {
+	public Person person5Qualifier(String name, int age, @Qualifier("address5")Address address) {
 		var person = new Person(name, age, address);
 		return person;
 	}
